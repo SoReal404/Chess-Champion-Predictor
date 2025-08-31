@@ -37,14 +37,21 @@ This project predicts whether the White player wins, the Black player wins, or i
 ---
 
 ## Features
-- `event`: Tournament/event ID
-- `Rounds`, `Section`, `Games Num`: Extracted from round info
-- `white_elo`, `black_elo`: Player Elo ratings
-- `white_id`, `black_id`: Unique player identifiers
-- `opening_encod`, `eco_endoded`: Encoded openings and ECO codes
-- `white_avg_elo`, `black_avg_elo`: Average Elo of players over past matches
-- `white_win_rate`, `black_win_rate`: Historical win rates
-- `Rating Diff`: Difference in Elo (White - Black)
+'event', 
+'white_elo', 
+'black_elo', 
+'opening_encod', 
+'eco_endoded',
+'Rounds', 
+'Section', 
+'Games Num', 
+'Rating Diff', 
+'white_id', 
+'black_id',
+'white_avg_elo',
+'black_avg_elo',
+'white_win_rate',
+'black_win_rate'
 
 **Target:**  
 - `Match_Result_Encoded`: 0 = White Wins, 1 = Black Wins, 2 = Draw
@@ -61,21 +68,22 @@ This project predicts whether the White player wins, the Black player wins, or i
 ---
 
 ## Predictions
-Example of predicted probabilities for top matches:
 
-| White            | Black            | Predicted Probabilities (White/Black/Draw) |
-| ---------------- | ---------------- | ---------------------------------------- |
-| Magnus Carlsen   | D. Gukesh        | [0.48, 0.25, 0.27]                        |
-| Magnus Carlsen   | Alireza Firouzja | [0.46, 0.26, 0.28]                        |
-| Hikaru Nakamura  | Arjun Erigaisi   | [0.47, 0.26, 0.28]                        |
-| Hikaru Nakamura  | D. Gukesh        | [0.46, 0.25, 0.28]                        |
+| White            | Black            | White ID | Black ID | White Elo | Black Elo | Real Result | Predicted Winner | Probabilities (W/B/D)  |
+| ---------------- | ---------------- | -------- | -------- | --------- | --------- | ----------- | ---------------- | ---------------------- |
+| Magnus Carlsen   | D. Gukesh        | 981      | 777      | 2865      | 2720      | White Wins  | White Wins       | \[0.481, 0.254, 0.264] |
+| Magnus Carlsen   | Alireza Firouzja | 981      | 782      | 2865      | 2790      | White Wins  | White Wins       | \[0.464, 0.259, 0.277] |
+| Hikaru Nakamura  | Arjun Erigaisi   | 776      | 788      | 2789      | 2725      | White Wins  | White Wins       | \[0.466, 0.256, 0.278] |
+| Hikaru Nakamura  | D. Gukesh        | 776      | 777      | 2789      | 2720      | Black Wins  | White Wins       | \[0.463, 0.255, 0.282] |
+| Levon Aronian    | Magnus Carlsen   | 779      | 981      | 2750      | 2865      | White Wins  | Draw             | \[0.366, 0.295, 0.338] |
+| Alireza Firouzja | Levon Aronian    | 782      | 779      | 2790      | 2750      | White Wins  | White Wins       | \[0.444, 0.285, 0.271] |
 
 ---
 
 ## Installation
 ```bash
 # Clone repository
-git clone <your_repo_url>
+git clone https://github.com/SoReal404/Chess-Champion-Predictor.git
 
 # Navigate to project directory
 cd chess-predictor
